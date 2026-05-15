@@ -8,9 +8,9 @@ type PageShellProps = {
 
 export function PageShell({ children }: PageShellProps) {
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_80%_10%,rgb(14_165_233_/_0.12),transparent_24rem)] text-text">
+    <div className="site-grid min-h-screen text-text">
       <Navbar />
-      <main className="mx-auto min-h-[calc(100vh-8rem)] max-w-6xl px-5 py-12 md:py-16">
+      <main className="mx-auto min-h-[calc(100vh-8rem)] max-w-[1180px] px-5 py-8 md:py-12">
         {children}
       </main>
       <Footer />

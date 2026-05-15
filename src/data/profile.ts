@@ -9,9 +9,10 @@ export const profile = {
     "Tools and automation",
     "Debugging",
   ],
-  email: "",
+  email: "manuel.garnica@uw.edu",
   links: {
-    github: "",
-    linkedin: "",
+    github: "https://github.com/manuelgarnica",
+    linkedin: "https://linkedin.com/in/manuelgarnica",
   },
+  resume: "",
 };
