@@ -10,7 +10,10 @@ export type Profile = {
   githubUrl: string;
   resumeUrl: string;
   shortBio: string;
+  aboutText: string;
+  contactText: string;
   focusAreas: string[];
+  enjoyItems: string[];
 };
 
 export const profile: Profile = {
@@ -23,12 +26,22 @@ export const profile: Profile = {
   githubUrl: "https://github.com/Manuelgrios",
   resumeUrl: assetPath("assets/resume/Manuel_Garnica_Resume.docx"),
   shortBio:
-    "I'm an Applied CS student at the University of Washington Bothell with a focus on building software, automating workflows, and turning data into actionable insights.",
+    "I'm an Applied Computer Science student at the University of Washington Bothell. My work focuses on software tools, automation, debugging, and data visualization, with an emphasis on making technical problems easier to test, explain, and improve.",
+  aboutText:
+    "I work best on projects where the problem has to be traced carefully: a route fails, a build step breaks, a data view is unclear, or a system needs to be easier to maintain. My portfolio connects software engineering, automation, and data visualization through projects that can be explained clearly and improved over time.",
+  contactText:
+    "I'm open to internships, project collaboration, and technical work involving software tools, automation, debugging, or data visualization.",
   focusAreas: [
     "Software engineering",
     "Data visualization",
     "Tools and automation",
     "Debugging",
+  ],
+  enjoyItems: [
+    "Debugging systems until the failure point is clear",
+    "Building tools that reduce repeated manual work",
+    "Organizing technical problems into clear steps",
+    "Explaining results through clean visuals and documentation",
   ],
 };
 

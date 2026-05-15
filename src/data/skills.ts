@@ -11,7 +11,7 @@ export type SkillItem = {
 export const skillGroups: SkillGroup[] = [
   {
     title: "Engineering",
-    skills: ["React", "TypeScript", "JavaScript", "Git"],
+    skills: ["React", "TypeScript", "JavaScript", "Git", "Debugging"],
   },
   {
     title: "Focus Areas",
@@ -22,14 +22,17 @@ export const skillGroups: SkillGroup[] = [
 export const skillItems: SkillItem[] = [
   { label: "Python", mark: "Py" },
   { label: "JavaScript", mark: "JS" },
-  { label: "C", mark: "C" },
+  { label: "TypeScript", mark: "TS" },
+  { label: "React", mark: "React" },
+  { label: "HTML/CSS", mark: "</>" },
+  { label: "C++", mark: "C++" },
   { label: "C#", mark: "C#" },
-  { label: "Unity", mark: "U" },
   { label: "Flask", mark: "Fl" },
-  { label: "MySQL", mark: "SQL" },
   { label: "Git", mark: "Git" },
   { label: "GitHub Actions", mark: "GA" },
-  { label: "HTML/CSS", mark: "</>" },
+  { label: "Unity", mark: "U" },
+  { label: "Data Visualization", mark: "Viz" },
   { label: "Pandas", mark: "Pd" },
   { label: "Matplotlib", mark: "Mpl" },
+  { label: "Debugging", mark: "Debug" },
 ];

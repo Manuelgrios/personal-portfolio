@@ -29,13 +29,6 @@ const projectIcons: Record<string, LucideIcon> = {
   "data-visualization-portfolio-direction": BarChart3,
 };
 
-const enjoyItems = [
-  "Building practical tools",
-  "Solving real-world problems",
-  "Learning new technologies",
-  "Turning data into insights",
-];
-
 const socialIcons: Record<(typeof contactLinks)[number]["key"], LucideIcon> = {
   email: Mail,
   linkedin: GraduationCap,
@@ -112,10 +105,7 @@ export function Home() {
             </h2>
             <div className="mt-4 h-px w-12 bg-accent-dark" />
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300">
-              I enjoy building projects that combine software engineering with
-              practical impact. Whether it&apos;s automating a deployment
-              workflow, debugging backend integrations, or visualizing data, I
-              focus on clear solutions and continuous learning.
+              {profile.aboutText}
             </p>
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               <InfoGroup
@@ -142,7 +132,7 @@ export function Home() {
             </h3>
             <div className="mt-3 h-px w-12 bg-accent-dark" />
             <ul className="mt-6 space-y-5">
-              {enjoyItems.map((item) => (
+              {profile.enjoyItems.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm text-slate-200">
                   <CheckCircle2 className="text-blue-300" size={17} />
                   {item}
@@ -235,8 +225,7 @@ export function Home() {
             </p>
             <h2 className="mt-2 text-3xl font-bold text-text">Let&apos;s Connect</h2>
             <p className="mt-4 text-sm leading-6 text-slate-300">
-              I&apos;m always open to discussing new opportunities,
-              collaborations, or interesting projects.
+              {profile.contactText}
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
