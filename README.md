@@ -34,19 +34,14 @@ Before making design or content changes, read `DESIGN_GUIDE.md`.
 
 ## Deployment
 
-Live site:
+- Local development: `npm install`, then `npm run dev`
+- Production build: `npm run build`
+- GitHub Pages deploys automatically on push to `main`
+- GitHub Pages source should be set to **GitHub Actions**
+- Live URL: https://manuelgrios.github.io/personal-portfolio/
 
-https://manuelgrios.github.io/personal-portfolio/
-
-GitHub Pages deployment runs automatically on every push to `main`.
-
-In GitHub, set **Settings -> Pages -> Source** to **GitHub Actions**.
-
-Production build:
-
-```bash
-npm run build
-```
+In GitHub, check **Settings -> Pages -> Source** and confirm it is set to
+**GitHub Actions**.
 
 ## Updating Content
 
