@@ -111,7 +111,7 @@ export function Home() {
               <InfoGroup
                 icon={GraduationCap}
                 label={profile.school}
-                lines={["Applied Computer Science"]}
+                lines={profile.degrees}
               />
               <InfoGroup
                 icon={Code2}
