@@ -1,6 +1,8 @@
 import { Download, Menu } from "lucide-react";
-import { Link } from "react-router-dom";
+import type { MouseEvent } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { profile, profileLinks } from "../../data/profile";
+import { scrollToHash } from "../../lib/hashNavigation";
 
 const navItems = [
   { label: "About", href: "/#about" },
@@ -10,6 +12,20 @@ const navItems = [
 ];
 
 export function Navbar() {
+  const location = useLocation();
+
+  function handleHashClick(
+    event: MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) {
+    const hash = href.slice(href.indexOf("#"));
+
+    if (location.pathname === "/" && location.hash === hash) {
+      event.preventDefault();
+      scrollToHash(hash);
+    }
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/82 backdrop-blur-xl">
       <nav className="mx-auto flex h-16 max-w-[1180px] items-center justify-between px-5">
@@ -24,6 +40,7 @@ export function Navbar() {
             <Link
               key={item.href}
               to={item.href}
+              onClick={(event) => handleHashClick(event, item.href)}
               className="text-sm font-medium text-slate-200 transition hover:text-accent"
             >
               {item.label}
