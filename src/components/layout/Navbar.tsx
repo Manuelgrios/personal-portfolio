@@ -1,6 +1,6 @@
 import { Download, Menu } from "lucide-react";
 import type { MouseEvent } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { profile, profileLinks } from "../../data/profile";
 import { scrollToHash } from "../../lib/hashNavigation";
 
@@ -13,6 +13,7 @@ const navItems = [
 
 export function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   function handleHashClick(
     event: MouseEvent<HTMLAnchorElement>,
@@ -20,10 +21,15 @@ export function Navbar() {
   ) {
     const hash = href.slice(href.indexOf("#"));
 
-    if (location.pathname === "/" && location.hash === hash) {
+    if (location.pathname === "/") {
       event.preventDefault();
-      scrollToHash(hash);
+      navigate({ pathname: "/", hash });
+      window.requestAnimationFrame(() => scrollToHash(hash));
+      return;
     }
+
+    event.preventDefault();
+    navigate({ pathname: "/", hash });
   }
 
   return (
