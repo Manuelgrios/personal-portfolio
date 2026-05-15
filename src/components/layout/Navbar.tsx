@@ -1,6 +1,6 @@
 import { Download, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
-import { profile } from "../../data/profile";
+import { profile, profileLinks } from "../../data/profile";
 
 const navItems = [
   { label: "About", href: "/#about" },
@@ -29,20 +29,14 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
-          {profile.resume ? (
-            <a
-              className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-accent-dark bg-accent-dark px-4 text-sm font-semibold text-white shadow-[0_0_18px_rgb(37_99_235_/_0.28)] transition hover:bg-blue-500"
-              href={profile.resume}
-            >
-              <Download size={16} />
-              Resume
-            </a>
-          ) : (
-            <span className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-accent-dark bg-accent-dark px-4 text-sm font-semibold text-white shadow-[0_0_18px_rgb(37_99_235_/_0.28)]">
-              <Download size={16} />
-              Resume
-            </span>
-          )}
+          <a
+            className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-accent-dark bg-accent-dark px-4 text-sm font-semibold text-white shadow-[0_0_18px_rgb(37_99_235_/_0.28)] transition hover:bg-blue-500"
+            download
+            href={profileLinks.resume}
+          >
+            <Download size={16} />
+            Resume
+          </a>
         </div>
         <button
           className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted md:hidden"

@@ -31,3 +31,23 @@ npm run build
 ```
 
 Before making design or content changes, read `DESIGN_GUIDE.md`.
+
+## Updating Content
+
+Profile and contact information live in `src/data/profile.ts`.
+
+Project information lives in `src/data/projects.ts`. To add a future project,
+add a new object with a unique `slug`, `title`, `summary`, `problem`, `outcome`,
+and `tools`. The project index and detail route will use that data.
+
+Skill information lives in `src/data/skills.ts`.
+
+## Resume
+
+Place the resume PDF at:
+
+```text
+public/assets/resume/Manuel_Garnica_Resume.pdf
+```
+
+The Resume button reads its URL from `src/data/profile.ts`.

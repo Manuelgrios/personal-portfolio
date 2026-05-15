@@ -11,10 +11,11 @@ import {
   Mail,
   SquareTerminal,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Tag } from "../components/ui/Tag";
-import { profile } from "../data/profile";
+import { contactLinks, profile, profileLinks } from "../data/profile";
 import { projects } from "../data/projects";
 import { skillItems } from "../data/skills";
 
@@ -34,6 +35,12 @@ const enjoyItems = [
   "Turning data into insights",
 ];
 
+const socialIcons: Record<(typeof contactLinks)[number]["key"], LucideIcon> = {
+  email: Mail,
+  linkedin: GraduationCap,
+  github: Code2,
+};
+
 export function Home() {
   return (
     <div className="space-y-4 md:space-y-5">
@@ -50,9 +57,7 @@ export function Home() {
             <span className="text-accent-dark">Visualizing data.</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-            I&apos;m an Applied CS student at the University of Washington
-            Bothell with a focus on building software, automating workflows, and
-            turning data into actionable insights.
+            {profile.shortBio}
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button href="/#projects">
@@ -65,31 +70,22 @@ export function Home() {
             </Button>
           </div>
           <div className="mt-8 flex items-center gap-8 text-slate-400">
-            <a
-              aria-label="GitHub"
-              className="transition hover:text-accent"
-              href={profile.links.github}
-              rel="noreferrer"
-              target="_blank"
-            >
-              <Code2 size={24} />
-            </a>
-            <a
-              aria-label="LinkedIn"
-              className="transition hover:text-accent"
-              href={profile.links.linkedin}
-              rel="noreferrer"
-              target="_blank"
-            >
-              <GraduationCap size={24} />
-            </a>
-            <a
-              aria-label="Email"
-              className="transition hover:text-accent"
-              href={`mailto:${profile.email}`}
-            >
-              <Mail size={24} />
-            </a>
+            {contactLinks.map((link) => {
+              const Icon = socialIcons[link.key];
+
+              return (
+                <a
+                  key={link.key}
+                  aria-label={link.label}
+                  className="transition hover:text-accent"
+                  href={link.href}
+                  rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                >
+                  <Icon size={24} />
+                </a>
+              );
+            })}
           </div>
         </div>
 
@@ -123,7 +119,7 @@ export function Home() {
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               <InfoGroup
                 icon={GraduationCap}
-                label="University of Washington Bothell"
+                label={profile.school}
                 lines={["Applied Computer Science"]}
               />
               <InfoGroup
@@ -177,7 +173,7 @@ export function Home() {
             const Icon = projectIcons[project.slug] ?? Code2;
 
             return (
-              <a key={project.slug} href={`/projects/${project.slug}`}>
+              <Link key={project.slug} to={`/projects/${project.slug}`}>
                 <div className="group h-full rounded-xl border border-accent-dark/45 bg-card-soft/42 p-4 transition hover:border-accent hover:bg-card-soft/70">
                   <div className="flex items-start gap-4">
                     <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-slate-700/70 text-accent">
@@ -204,7 +200,7 @@ export function Home() {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             );
           })}
         </div>
@@ -244,23 +240,26 @@ export function Home() {
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             <ContactCard
-              href={`mailto:${profile.email}`}
+              href={profileLinks.email}
               icon={Mail}
               label="Email"
               value={profile.email}
             />
-            <ContactCard
-              href={profile.links.linkedin}
-              icon={GraduationCap}
-              label="LinkedIn"
-              value="linkedin.com/in/manuelgarnica"
-            />
-            <ContactCard
-              href={profile.links.github}
-              icon={Code2}
-              label="GitHub"
-              value="github.com/manuelgarnica"
-            />
+            {contactLinks
+              .filter((link) => link.key !== "email")
+              .map((link) => {
+                const Icon = socialIcons[link.key];
+
+                return (
+                  <ContactCard
+                    key={link.key}
+                    href={link.href}
+                    icon={Icon}
+                    label={link.label}
+                    value={link.value}
+                  />
+                );
+              })}
           </div>
         </div>
       </Card>
