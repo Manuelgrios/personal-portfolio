@@ -7,7 +7,7 @@ Read `DESIGN_GUIDE.md` before changing layout, colors, copy tone, or component s
 - Profile and contact info: `src/data/profile.ts`
 - Project info: `src/data/projects.ts`
 - Skill info: `src/data/skills.ts`
-- Resume PDF location: `public/assets/resume/Manuel_Garnica_Resume.pdf`
+- Resume file location: `public/assets/resume/Manuel_Garnica_Resume.docx`
 
 ## Updating Profile Links
 
@@ -36,9 +36,9 @@ Use a short `mark` value because it appears inside a compact tile.
 
 ## Resume
 
-Do not invent resume content. When the PDF is available, place it at:
+Do not invent resume content. When the resume file is available, place it at:
 
-`public/assets/resume/Manuel_Garnica_Resume.pdf`
+`public/assets/resume/Manuel_Garnica_Resume.docx`
 
 The resume URL is configured in `src/data/profile.ts`.
 

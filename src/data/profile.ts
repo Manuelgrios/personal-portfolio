@@ -1,3 +1,5 @@
+import { assetPath } from "../lib/assets";
+
 export type Profile = {
   name: string;
   title: string;
@@ -19,8 +21,7 @@ export const profile: Profile = {
   email: "manuelgarios@outlook.com",
   linkedinUrl: "https://www.linkedin.com/in/manuel-garnica-122233252/",
   githubUrl: "https://github.com/Manuelgrios",
-  // TODO: Add the resume PDF at public/assets/resume/Manuel_Garnica_Resume.pdf.
-  resumeUrl: "/assets/resume/Manuel_Garnica_Resume.pdf",
+  resumeUrl: assetPath("assets/resume/Manuel_Garnica_Resume.docx"),
   shortBio:
     "I'm an Applied CS student at the University of Washington Bothell with a focus on building software, automating workflows, and turning data into actionable insights.",
   focusAreas: [

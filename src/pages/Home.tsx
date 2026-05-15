@@ -18,6 +18,7 @@ import { Tag } from "../components/ui/Tag";
 import { contactLinks, profile, profileLinks } from "../data/profile";
 import { projects } from "../data/projects";
 import { skillItems } from "../data/skills";
+import { assetPath } from "../lib/assets";
 
 const projectIcons: Record<string, LucideIcon> = {
   "chrome-extension-deployment-workflow": Code2,
@@ -95,7 +96,7 @@ export function Home() {
           <img
             alt="Professional headshot of Manuel Garnica"
             className="relative z-10 mx-auto h-[360px] w-full max-w-[430px] object-cover object-top md:h-[520px]"
-            src="/assets/headshot.jpg"
+            src={assetPath("assets/headshot.png")}
           />
         </div>
       </section>

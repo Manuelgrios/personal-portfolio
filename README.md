@@ -32,6 +32,22 @@ npm run build
 
 Before making design or content changes, read `DESIGN_GUIDE.md`.
 
+## Deployment
+
+Live site:
+
+https://manuelgrios.github.io/personal-portfolio/
+
+GitHub Pages deployment runs automatically on every push to `main`.
+
+In GitHub, set **Settings -> Pages -> Source** to **GitHub Actions**.
+
+Production build:
+
+```bash
+npm run build
+```
+
 ## Updating Content
 
 Profile and contact information live in `src/data/profile.ts`.
@@ -44,10 +60,10 @@ Skill information lives in `src/data/skills.ts`.
 
 ## Resume
 
-Place the resume PDF at:
+Place the resume file at:
 
 ```text
-public/assets/resume/Manuel_Garnica_Resume.pdf
+public/assets/resume/Manuel_Garnica_Resume.docx
 ```
 
 The Resume button reads its URL from `src/data/profile.ts`.
