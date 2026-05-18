@@ -14,7 +14,7 @@ export function ProjectDetail() {
         <SectionHeader
           eyebrow="Project"
           title="Project not found"
-          description="The requested project does not exist in the project data file."
+          description="The requested project is not available yet. Return to the project index to view current work."
         />
         <Link className="text-sm font-semibold text-accent" to="/projects">
           Back to projects

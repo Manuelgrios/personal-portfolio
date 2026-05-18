@@ -16,7 +16,7 @@ export function Contact() {
       <SectionHeader
         eyebrow="Contact"
         title="Get in touch"
-        description="Contact details stay in src/data/profile.ts so they can be updated in one place."
+        description="Reach out for internships, collaboration, or technical work involving software tools, automation, debugging, or data visualization."
       />
       <Card>
         <div className="mb-6">

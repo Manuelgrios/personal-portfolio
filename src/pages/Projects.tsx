@@ -10,9 +10,10 @@ export function Projects() {
       <SectionHeader
         eyebrow="Projects"
         title="Project index"
-        description="A reusable project grid backed by src/data/projects.ts."
+        description="Selected projects focused on software tools, automation, debugging, data structures, and data visualization."
       />
       <div className="grid gap-5 md:grid-cols-2">
+        {/* Project cards are generated from src/data/projects.ts. */}
         {projects.map((project) => (
           <Link key={project.slug} to={`/projects/${project.slug}`}>
             <Card className="h-full transition hover:border-accent/70">
