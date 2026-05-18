@@ -1,22 +1,16 @@
-import type { LucideIcon } from "lucide-react";
-import { Code2, GraduationCap, Mail } from "lucide-react";
 import { Card } from "../components/ui/Card";
 import { SectionHeader } from "../components/ui/SectionHeader";
-import { contactLinks, profile } from "../data/profile";
-
-const contactIcons: Record<(typeof contactLinks)[number]["key"], LucideIcon> = {
-  email: Mail,
-  linkedin: GraduationCap,
-  github: Code2,
-};
+import { profile } from "../data/profile";
+import { socialLinks } from "../data/socialLinks";
+import { getIcon } from "../lib/icons";
 
 export function Contact() {
   return (
     <div className="space-y-8">
       <SectionHeader
-        eyebrow="Contact"
-        title="Get in touch"
-        description="Reach out for internships, collaboration, or technical work involving software tools, automation, debugging, or data visualization."
+        eyebrow={profile.sections.contact.eyebrow}
+        title={profile.sections.contact.pageHeading}
+        description={profile.sections.contact.body}
       />
       <Card>
         <div className="mb-6">
@@ -24,16 +18,16 @@ export function Contact() {
           <p className="mt-2 text-muted">{profile.shortBio}</p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
-          {contactLinks.map((link) => {
-            const Icon = contactIcons[link.key];
+          {socialLinks.map((link) => {
+            const Icon = getIcon(link.iconKey);
 
             return (
               <a
                 key={link.key}
                 className="flex items-center gap-4 rounded-xl border border-border/80 bg-background/30 p-5 transition hover:border-accent"
                 href={link.href}
-                rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.external ? "noreferrer" : undefined}
+                target={link.external ? "_blank" : undefined}
               >
                 <Icon className="shrink-0 text-accent-dark" size={24} />
                 <span>

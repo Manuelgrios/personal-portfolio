@@ -1,6 +1,6 @@
 # Portfolio Design Guide
 
-This portfolio belongs to Manuel Garnica.
+This portfolio template uses the default profile content from `src/data/*`.
 
 ## Visual style
 

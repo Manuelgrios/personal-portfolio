@@ -1,38 +1,61 @@
-export type SkillGroup = {
-  title: string;
-  skills: string[];
+export type SkillCategory = {
+  category: string;
+  items: SkillItem[];
 };
 
 export type SkillItem = {
-  label: string;
-  mark: string;
+  name: string;
+  shortLabel: string;
+  category: string;
+  iconKey?: string;
 };
 
-export const skillGroups: SkillGroup[] = [
+export const skillCategories: SkillCategory[] = [
   {
-    title: "Engineering",
-    skills: ["React", "TypeScript", "JavaScript", "Git", "Debugging"],
+    category: "Languages",
+    items: [
+      { name: "Python", shortLabel: "Py", category: "Languages" },
+      { name: "JavaScript", shortLabel: "JS", category: "Languages" },
+      { name: "TypeScript", shortLabel: "TS", category: "Languages" },
+      { name: "C++", shortLabel: "C++", category: "Languages" },
+      { name: "C#", shortLabel: "C#", category: "Languages" },
+    ],
   },
   {
-    title: "Focus Areas",
-    skills: ["Software engineering", "Data visualization", "Automation"],
+    category: "Frontend",
+    items: [
+      { name: "React", shortLabel: "React", category: "Frontend" },
+      { name: "HTML/CSS", shortLabel: "</>", category: "Frontend" },
+    ],
+  },
+  {
+    category: "Tools and Frameworks",
+    items: [
+      { name: "Flask", shortLabel: "Fl", category: "Tools and Frameworks" },
+      { name: "Git", shortLabel: "Git", category: "Tools and Frameworks" },
+      {
+        name: "GitHub Actions",
+        shortLabel: "GA",
+        category: "Tools and Frameworks",
+      },
+      { name: "Unity", shortLabel: "U", category: "Tools and Frameworks" },
+    ],
+  },
+  {
+    category: "Data and Analysis",
+    items: [
+      {
+        name: "Data Visualization",
+        shortLabel: "Viz",
+        category: "Data and Analysis",
+      },
+      { name: "Pandas", shortLabel: "Pd", category: "Data and Analysis" },
+      { name: "Matplotlib", shortLabel: "Mpl", category: "Data and Analysis" },
+      { name: "Debugging", shortLabel: "Debug", category: "Data and Analysis" },
+    ],
   },
 ];
 
-export const skillItems: SkillItem[] = [
-  { label: "Python", mark: "Py" },
-  { label: "JavaScript", mark: "JS" },
-  { label: "TypeScript", mark: "TS" },
-  { label: "React", mark: "React" },
-  { label: "HTML/CSS", mark: "</>" },
-  { label: "C++", mark: "C++" },
-  { label: "C#", mark: "C#" },
-  { label: "Flask", mark: "Fl" },
-  { label: "Git", mark: "Git" },
-  { label: "GitHub Actions", mark: "GA" },
-  { label: "Unity", mark: "U" },
-  { label: "Data Visualization", mark: "Viz" },
-  { label: "Pandas", mark: "Pd" },
-  { label: "Matplotlib", mark: "Mpl" },
-  { label: "Debugging", mark: "Debug" },
-];
+export const skillItems: SkillItem[] = skillCategories.flatMap(
+  (category) => category.items,
+);

@@ -31,23 +31,67 @@ export function ProjectDetail() {
         description={project.summary}
       />
       <div className="grid gap-5 md:grid-cols-2">
-        <Card>
-          <h2 className="text-lg font-semibold text-text">Problem</h2>
-          <p className="mt-3 leading-7 text-muted">{project.problem}</p>
-        </Card>
-        <Card>
-          <h2 className="text-lg font-semibold text-text">Outcome</h2>
-          <p className="mt-3 leading-7 text-muted">{project.outcome}</p>
-        </Card>
+        <DetailCard title="Overview" body={project.overview} />
+        <DetailCard title="Challenge" body={project.challenge} />
+        <DetailCard title="Approach" body={project.approach} />
+        <ListCard title="Features" items={project.features} />
+        <ListCard title="Workflow" items={project.workflow} />
+        <ListCard title="Results" items={project.results} />
       </div>
       <Card>
-        <h2 className="text-lg font-semibold text-text">Tools</h2>
+        <h2 className="text-lg font-semibold text-text">Technologies</h2>
         <div className="mt-5 flex flex-wrap gap-2">
-          {project.tools.map((tool) => (
-            <Tag key={tool}>{tool}</Tag>
+          {project.technologies.map((technology) => (
+            <Tag key={technology}>{technology}</Tag>
           ))}
         </div>
       </Card>
+      <ListCard
+        title="Interview Talking Points"
+        items={project.interviewTalkingPoints}
+      />
     </article>
+  );
+}
+
+type DetailCardProps = {
+  title: string;
+  body?: string;
+};
+
+function DetailCard({ title, body }: DetailCardProps) {
+  if (!body) {
+    return null;
+  }
+
+  return (
+    <Card>
+      <h2 className="text-lg font-semibold text-text">{title}</h2>
+      <p className="mt-3 leading-7 text-muted">{body}</p>
+    </Card>
+  );
+}
+
+type ListCardProps = {
+  title: string;
+  items?: string[];
+};
+
+function ListCard({ title, items }: ListCardProps) {
+  if (!items || items.length === 0) {
+    return null;
+  }
+
+  return (
+    <Card>
+      <h2 className="text-lg font-semibold text-text">{title}</h2>
+      <ul className="mt-4 space-y-3 text-muted">
+        {items.map((item) => (
+          <li key={item} className="leading-7">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </Card>
   );
 }
