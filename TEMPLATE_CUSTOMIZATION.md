@@ -4,7 +4,8 @@ This repo is a reusable personal portfolio template. The default content lives i
 
 ## Content Files
 
-- `src/data/siteConfig.ts`: site title, SEO description, brand initials/name, copyright year, theme label, and resume path.
+- `src/data/siteConfig.ts`: site title, SEO description, brand initials/name, copyright year, default theme, and resume path.
+- `src/data/themes.ts`: theme tokens, ThemeSwitcher options, and hero headshot image treatments.
 - `src/data/profile.ts`: name-facing profile content, hero copy, section text, focus areas, and contact email.
 - `src/data/education.ts`: degree, school, timeline, and education detail entries.
 - `src/data/socialLinks.ts`: email, GitHub, LinkedIn, and optional external links.
@@ -68,7 +69,18 @@ Each skill should include:
 
 ## Change Colors Lightly
 
-The default theme is dark navy with electric blue accents. Make light theme adjustments in `src/index.css` theme tokens. Keep strong contrast, thin blue-gray borders, and restrained blue accents unless the design guide is intentionally changed.
+The default theme is dark navy with electric blue accents. Theme data lives in
+`src/data/themes.ts`, and the default active theme is set in
+`src/data/siteConfig.ts`.
+
+Do not hardcode colors in components. Use semantic CSS variables through
+Tailwind utilities such as `bg-background`, `bg-card`, `border-border`,
+`text-text`, `text-muted`, and `text-accent`. If a component needs a token that
+does not have a utility, use an explicit variable such as
+`bg-[var(--color-button-primary)]`.
+
+Use each theme's `imageTreatment` for the hero headshot glow, filter, shadow,
+and background wash. Keep filters subtle so skin tone remains natural.
 
 ## Replace Images And Resume
 

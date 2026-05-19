@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { navigationItems } from "../../data/navigation";
 import { siteConfig } from "../../data/siteConfig";
 import { scrollToHash } from "../../lib/hashNavigation";
+import { ThemeSwitcher } from "../theme/ThemeSwitcher";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -97,14 +98,15 @@ export function Navbar() {
                 onClick={(event) =>
                   handleNavigationClick(event, item.href, item.type)
                 }
-                className="text-sm font-medium text-slate-200 transition hover:text-accent focus:outline-none focus-visible:text-accent"
+                className="text-sm font-medium text-text transition hover:text-accent focus:outline-none focus-visible:text-accent"
               >
                 {item.label}
               </Link>
             ))}
+            <ThemeSwitcher className="w-56" />
             {siteConfig.resume.path ? (
               <a
-                className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-accent-dark bg-accent-dark px-4 text-sm font-semibold text-white shadow-[0_0_18px_rgb(37_99_235_/_0.28)] transition hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+                className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-accent-dark bg-[var(--color-button-primary)] px-4 text-sm font-semibold text-white shadow-[0_0_18px_var(--theme-accent-glow)] transition hover:bg-[var(--color-button-primary-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                 download={siteConfig.resume.download}
                 href={siteConfig.resume.path}
               >
@@ -118,7 +120,7 @@ export function Navbar() {
             )}
           </div>
           <button
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted transition hover:border-accent/70 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted transition hover:border-accent/70 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] md:hidden"
             aria-controls="mobile-navigation"
             aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
@@ -132,7 +134,7 @@ export function Navbar() {
         <div
           id="mobile-navigation"
           className={[
-            "absolute inset-x-5 top-[calc(100%+0.5rem)] overflow-hidden rounded-2xl border border-border/80 bg-background/95 shadow-[0_20px_60px_rgb(2_6_23_/_0.45)] backdrop-blur-xl transition md:hidden",
+            "absolute inset-x-5 top-[calc(100%+0.5rem)] overflow-visible rounded-2xl border border-border/80 bg-background/95 shadow-[0_20px_60px_rgb(2_6_23_/_0.45)] backdrop-blur-xl transition md:hidden",
             isMenuOpen
               ? "pointer-events-auto translate-y-0 opacity-100"
               : "pointer-events-none -translate-y-2 opacity-0",
@@ -147,14 +149,19 @@ export function Navbar() {
                 onClick={(event) =>
                   handleNavigationClick(event, item.href, item.type)
                 }
-                className="min-h-12 rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-surface-soft hover:text-accent focus:outline-none focus-visible:bg-surface-soft focus-visible:text-accent"
+                className="min-h-12 rounded-xl px-4 py-3 text-sm font-semibold text-text transition hover:bg-surface-soft hover:text-accent focus:outline-none focus-visible:bg-surface-soft focus-visible:text-accent"
               >
                 {item.label}
               </Link>
             ))}
+            <ThemeSwitcher
+              inlineMenu
+              className="mt-2"
+              onThemeChange={closeMobileMenu}
+            />
             {siteConfig.resume.path ? (
               <a
-                className="mt-2 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-accent-dark bg-accent-dark px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+                className="mt-2 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-accent-dark bg-[var(--color-button-primary)] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-button-primary-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                 download={siteConfig.resume.download}
                 href={siteConfig.resume.path}
                 onClick={closeMobileMenu}

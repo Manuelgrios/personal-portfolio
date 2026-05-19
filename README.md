@@ -30,7 +30,8 @@ Build for production:
 npm run build
 ```
 
-Before making design or content changes, read `DESIGN_GUIDE.md`.
+Before making design or content changes, read `DESIGN_GUIDE.md`. Before
+changing theme colors or headshot treatment, read `THEMES.md`.
 
 ## Deployment
 
@@ -45,7 +46,10 @@ In GitHub, check **Settings -> Pages -> Source** and confirm it is set to
 
 ## Updating Content
 
-Site title, branding, copyright year, and resume path live in `src/data/siteConfig.ts`.
+Site title, branding, copyright year, default theme, and resume path live in `src/data/siteConfig.ts`.
+
+Theme tokens, ThemeSwitcher options, and headshot image treatments live in
+`src/data/themes.ts`.
 
 Profile, hero, and section text live in `src/data/profile.ts`.
 

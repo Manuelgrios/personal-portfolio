@@ -23,15 +23,15 @@ type LinkButtonProps = SharedProps & {
 
 const styles: Record<ButtonVariant, string> = {
   primary:
-    "border-accent-dark bg-accent-dark text-white shadow-[0_0_22px_rgb(37_99_235_/_0.28)] hover:bg-blue-500",
+    "border-accent-dark bg-[var(--color-button-primary)] text-white shadow-[0_0_22px_var(--theme-accent-glow)] hover:bg-[var(--color-button-primary-hover)]",
   secondary:
-    "border-border bg-background/45 text-text hover:border-accent/70 hover:bg-surface-soft",
+    "border-border bg-[var(--color-button-secondary)] text-text hover:border-accent/70 hover:bg-surface-soft",
 };
 
 export function Button(props: ButtonProps | LinkButtonProps) {
   const { children, className = "", variant = "primary" } = props;
   const base =
-    "inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border px-5 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-accent/50";
+    "inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border px-5 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)]";
 
   if (typeof props.href === "string") {
     const { "aria-label": ariaLabel, href, rel, target } = props;

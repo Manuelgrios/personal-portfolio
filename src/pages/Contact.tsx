@@ -34,7 +34,7 @@ export function Contact() {
                   <span className="block text-sm font-bold text-text">
                     {link.label}
                   </span>
-                  <span className="mt-1 block break-all text-xs text-slate-300">
+                  <span className="mt-1 block break-all text-xs text-muted">
                     {link.value}
                   </span>
                 </span>

@@ -1,4 +1,5 @@
 import { assetPath } from "../lib/assets";
+import type { ThemeId } from "./themes";
 
 export const siteConfig = {
   siteTitle: "Manuel Garnica | Portfolio",
@@ -11,6 +12,7 @@ export const siteConfig = {
     logoText: "MG",
   },
   theme: {
+    activeTheme: "midnight-blue" satisfies ThemeId,
     name: "Dark navy / electric blue",
     sectionLabelStyle: "uppercase blue text",
   },

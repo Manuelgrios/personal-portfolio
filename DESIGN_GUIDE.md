@@ -46,8 +46,10 @@ This portfolio template uses the default profile content from `src/data/*`.
 ## Implementation rules
 
 - Read this file before making portfolio changes.
+- Read `THEMES.md` before changing theme colors or headshot treatment.
 - Keep profile content in `src/data/profile.ts`.
 - Keep project content in `src/data/projects.ts`.
 - Keep skills content in `src/data/skills.ts`.
+- Keep theme tokens in `src/data/themes.ts`; do not hardcode theme colors in components.
 - Prefer reusable components in `src/components/`.
 - Do not hardcode the same project or profile text in multiple pages.

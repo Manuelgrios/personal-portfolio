@@ -1,5 +1,7 @@
 import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
+import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
+import { useTheme } from "../components/theme/useTheme";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Tag } from "../components/ui/Tag";
@@ -11,7 +13,9 @@ import { assetPath } from "../lib/assets";
 import { getIcon } from "../lib/icons";
 
 export function Home() {
+  const { currentTheme } = useTheme();
   const featuredProjects = projects.filter((project) => project.featured).slice(0, 6);
+  const imageTreatment = currentTheme.imageTreatment;
 
   return (
     <div className="space-y-4 md:space-y-5">
@@ -31,7 +35,7 @@ export function Home() {
               {profile.hero.highlightedHeadline}
             </span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+          <p className="mt-6 max-w-xl text-lg leading-8 text-muted">
             {profile.hero.body}
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
@@ -49,7 +53,7 @@ export function Home() {
             ) : null}
           </div>
           {socialLinks.length > 0 ? (
-            <div className="mt-8 flex items-center gap-8 text-slate-400">
+            <div className="mt-8 flex items-center gap-8 text-muted">
               {socialLinks.map((link) => {
                 const Icon = getIcon(link.iconKey);
 
@@ -71,13 +75,25 @@ export function Home() {
         </div>
 
         {profile.hero.image.src ? (
-          <div className="relative min-h-[360px] md:min-h-[520px]">
-            <div className="absolute inset-x-6 bottom-0 h-[78%] rounded-full bg-accent-dark/45 blur-3xl" />
-            <div className="absolute inset-x-0 bottom-0 h-[62%] bg-[radial-gradient(circle,rgb(37_99_235_/_0.34),transparent_62%)]" />
+          <div
+            className="relative min-h-[360px] overflow-hidden md:min-h-[520px]"
+            style={
+              {
+                "--active-image-glow": imageTreatment.glow,
+                "--active-image-shadow": imageTreatment.shadow,
+                "--active-image-filter": imageTreatment.filter,
+                "--active-image-wash":
+                  imageTreatment.backgroundWash ?? "transparent",
+              } as CSSProperties
+            }
+          >
+            <div className="absolute inset-x-0 bottom-0 h-[80%] [background:var(--active-image-wash)]" />
+            <div className="absolute inset-x-4 bottom-0 h-[78%] rounded-full blur-2xl [background:var(--active-image-glow)]" />
             <img
               alt={profile.hero.image.alt}
-              className="relative z-10 mx-auto h-[360px] w-full max-w-[430px] object-cover object-top md:h-[520px]"
+              className="relative z-10 mx-auto h-[360px] w-full max-w-[430px] object-cover object-top shadow-[var(--active-image-shadow)] transition-[filter,box-shadow] duration-300 ease-out md:h-[520px]"
               src={assetPath(profile.hero.image.src)}
+              style={{ filter: "var(--active-image-filter)" }}
             />
           </div>
         ) : null}
@@ -93,7 +109,7 @@ export function Home() {
               {profile.sections.about.heading}
             </h2>
             <div className="mt-4 h-px w-12 bg-accent-dark" />
-            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-muted">
               {profile.sections.about.body}
             </p>
             {profile.sections.about.infoGroups.length > 0 ? (
@@ -124,9 +140,9 @@ export function Home() {
                 {profile.sections.about.enjoyItems.map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-3 text-sm text-slate-200"
+                    className="flex items-center gap-3 text-sm text-text"
                   >
-                    <CheckCircle2 className="text-blue-300" size={17} />
+                    <CheckCircle2 className="text-accent" size={17} />
                     {item}
                   </li>
                 ))}
@@ -161,7 +177,7 @@ export function Home() {
                 <Link key={project.slug} to={`/projects/${project.slug}`}>
                   <div className="group h-full rounded-xl border border-accent-dark/45 bg-card-soft/42 p-4 transition hover:border-accent hover:bg-card-soft/70">
                     <div className="flex items-start gap-4">
-                      <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-slate-700/70 text-accent">
+                      <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-surface-soft/80 text-accent">
                         <Icon size={25} />
                       </span>
                       <div className="min-w-0 flex-1">
@@ -174,7 +190,7 @@ export function Home() {
                             size={16}
                           />
                         </div>
-                        <p className="mt-3 text-sm leading-6 text-slate-300">
+                        <p className="mt-3 text-sm leading-6 text-muted">
                           {project.summary}
                         </p>
                         {project.tags.length > 0 ? (
@@ -202,7 +218,7 @@ export function Home() {
           {profile.sections.skills.heading}
         </h2>
         {profile.sections.skills.description ? (
-          <p className="mt-3 text-sm leading-6 text-slate-300">
+          <p className="mt-3 text-sm leading-6 text-muted">
             {profile.sections.skills.description}
           </p>
         ) : null}
@@ -234,7 +250,7 @@ export function Home() {
             <h2 className="mt-2 text-3xl font-bold text-text">
               {profile.sections.contact.heading}
             </h2>
-            <p className="mt-4 text-sm leading-6 text-slate-300">
+            <p className="mt-4 text-sm leading-6 text-muted">
               {profile.sections.contact.body}
             </p>
           </div>
@@ -282,7 +298,7 @@ function InfoGroup({ icon: Icon, label, lines }: InfoGroupProps) {
             <h3 className="text-sm font-bold leading-6 text-text">{label}</h3>
           ) : null}
           {lines.map((line) => (
-            <p key={line} className="mt-2 text-xs leading-5 text-slate-300">
+            <p key={line} className="mt-2 text-xs leading-5 text-muted">
               {line}
             </p>
           ))}
@@ -321,7 +337,7 @@ function ContactCard({
       <Icon className="shrink-0 text-accent-dark" size={25} />
       <span>
         <span className="block text-sm font-bold text-text">{label}</span>
-        <span className="mt-1 block break-all text-xs text-slate-300">
+        <span className="mt-1 block break-all text-xs text-muted">
           {value}
         </span>
       </span>
