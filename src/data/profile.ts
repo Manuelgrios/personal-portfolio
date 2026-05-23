@@ -86,8 +86,8 @@ export const profile: Profile = {
   ],
   hero: {
     eyebrow: "Applied Computing + Data Visualization Student",
-    headline: ["Building tools.", "Solving problems."],
-    highlightedHeadline: "Visualizing data.",
+    headline: ["Applied Computing", "Data visualization"],
+    highlightedHeadline: "Data Science Analyst and Software Developer",
     body:
       "I'm an Applied Computing and Data Visualization student at the University of Washington Bothell. I build software tools, debug systems, automate workflows, and use visual explanations to make technical problems easier to understand.",
     primaryCta: { label: "View Projects", href: "/#projects" },
