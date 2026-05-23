@@ -163,7 +163,7 @@ export const projects: Project[] = [
     title: "Apple Developer Hiring Research",
     category: "Research",
     summary:
-      "Analyzed Apple's developer hiring process, including interview structure, compensation signals, work expectations, and fairness concerns. The research turned scattered hiring information into practical advice for candidates.",
+      "Analyzed Apple's developer hiring process, including interview structure, compensation signals, work expectations, and fairness concerns. The research organized scattered hiring information into practical candidate guidance.",
     description:
       "A research project focused on organizing public hiring information into practical guidance for developer candidates.",
     tags: ["Research", "Technical Interviews", "Career Analysis"],
@@ -176,7 +176,7 @@ export const projects: Project[] = [
     approach:
       "Grouped research by hiring stage and topic so candidate preparation advice could be separated from speculation or unsupported claims.",
     results: [
-      "Turned scattered hiring information into practical advice for candidates.",
+      "Organized scattered hiring information into practical candidate guidance.",
       "Organized the research around interview structure, work expectations, compensation signals, and fairness considerations.",
     ],
     technologies: ["Research", "Technical Interviews", "Career Analysis"],

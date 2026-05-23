@@ -71,6 +71,10 @@ Keep filters subtle. Do not use aggressive hue shifts or edits that make skin
 look blue, purple, gray, or artificial. The theme should affect the surrounding
 glow, lighting, borders, and UI colors more than the person in the photo.
 
+Use radial halo layers for the portrait treatment. Avoid rectangular panels,
+vertical light bars, or image box shadows that make a transparent PNG look like
+it has a broken background.
+
 ## Add A New Theme
 
 1. Add a new theme object to `src/data/themes.ts`.

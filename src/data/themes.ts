@@ -64,12 +64,12 @@ export const themes: PortfolioTheme[] = [
       focusRing: "rgba(56, 189, 248, 0.5)",
     },
     imageTreatment: {
-      filter: "brightness(1.03) contrast(1.06) saturate(1.08)",
+      filter: "brightness(1.02) contrast(1.05) saturate(1.04)",
       glow:
-        "radial-gradient(circle at center, rgba(37, 99, 235, 0.46), transparent 62%)",
-      shadow: "0 0 90px rgba(37, 99, 235, 0.35)",
+        "radial-gradient(circle at 50% 52%, rgba(37, 99, 235, 0.58) 0%, rgba(37, 99, 235, 0.32) 30%, rgba(15, 23, 42, 0.10) 58%, transparent 74%)",
+      shadow: "0 0 90px rgba(37, 99, 235, 0.28)",
       backgroundWash:
-        "radial-gradient(circle at 58% 52%, rgba(37, 99, 235, 0.22), transparent 62%)",
+        "radial-gradient(circle at 50% 58%, rgba(37, 99, 235, 0.18) 0%, transparent 70%)",
     },
   },
   {
@@ -95,12 +95,12 @@ export const themes: PortfolioTheme[] = [
       focusRing: "rgba(96, 165, 250, 0.5)",
     },
     imageTreatment: {
-      filter: "brightness(1.02) contrast(1.04) saturate(1.03)",
+      filter: "brightness(1.02) contrast(1.05) saturate(1.04)",
       glow:
-        "radial-gradient(circle at center, rgba(59, 130, 246, 0.28), transparent 64%)",
-      shadow: "0 0 70px rgba(30, 64, 175, 0.26)",
+        "radial-gradient(circle at 50% 52%, rgba(59, 130, 246, 0.36) 0%, rgba(30, 64, 175, 0.22) 34%, rgba(2, 6, 23, 0.08) 58%, transparent 74%)",
+      shadow: "0 0 70px rgba(30, 64, 175, 0.22)",
       backgroundWash:
-        "radial-gradient(circle at 58% 54%, rgba(96, 165, 250, 0.14), transparent 64%)",
+        "radial-gradient(circle at 50% 58%, rgba(96, 165, 250, 0.12) 0%, transparent 70%)",
     },
   },
   {
@@ -126,12 +126,12 @@ export const themes: PortfolioTheme[] = [
       focusRing: "rgba(34, 211, 238, 0.48)",
     },
     imageTreatment: {
-      filter: "brightness(1.02) contrast(1.05) saturate(1.02)",
+      filter: "brightness(1.02) contrast(1.05) saturate(1.04)",
       glow:
-        "radial-gradient(circle at center, rgba(6, 182, 212, 0.34), transparent 64%)",
-      shadow: "0 0 80px rgba(6, 182, 212, 0.24)",
+        "radial-gradient(circle at 50% 52%, rgba(6, 182, 212, 0.42) 0%, rgba(8, 145, 178, 0.24) 34%, rgba(2, 6, 23, 0.08) 58%, transparent 74%)",
+      shadow: "0 0 80px rgba(6, 182, 212, 0.20)",
       backgroundWash:
-        "radial-gradient(circle at 58% 54%, rgba(6, 182, 212, 0.16), transparent 64%)",
+        "radial-gradient(circle at 50% 58%, rgba(6, 182, 212, 0.14) 0%, transparent 70%)",
     },
   },
   {
@@ -157,12 +157,12 @@ export const themes: PortfolioTheme[] = [
       focusRing: "rgba(96, 165, 250, 0.5)",
     },
     imageTreatment: {
-      filter: "brightness(1.04) contrast(1.08) saturate(1.05)",
+      filter: "brightness(1.02) contrast(1.05) saturate(1.04)",
       glow:
-        "radial-gradient(circle at center, rgba(59, 130, 246, 0.38), transparent 62%)",
-      shadow: "0 0 90px rgba(96, 165, 250, 0.30)",
+        "radial-gradient(circle at 50% 52%, rgba(96, 165, 250, 0.48) 0%, rgba(37, 99, 235, 0.24) 34%, rgba(2, 6, 23, 0.08) 58%, transparent 74%)",
+      shadow: "0 0 90px rgba(96, 165, 250, 0.24)",
       backgroundWash:
-        "radial-gradient(circle at 58% 54%, rgba(59, 130, 246, 0.18), transparent 62%)",
+        "radial-gradient(circle at 50% 58%, rgba(59, 130, 246, 0.14) 0%, transparent 70%)",
     },
   },
   {
@@ -190,10 +190,10 @@ export const themes: PortfolioTheme[] = [
     imageTreatment: {
       filter: "brightness(1.02) contrast(1.05) saturate(1.04)",
       glow:
-        "radial-gradient(circle at center, rgba(139, 92, 246, 0.42), transparent 62%)",
-      shadow: "0 0 90px rgba(139, 92, 246, 0.32)",
+        "radial-gradient(circle at 50% 52%, rgba(139, 92, 246, 0.48) 0%, rgba(124, 58, 237, 0.26) 34%, rgba(15, 23, 42, 0.10) 58%, transparent 74%)",
+      shadow: "0 0 90px rgba(139, 92, 246, 0.24)",
       backgroundWash:
-        "radial-gradient(circle at 58% 54%, rgba(139, 92, 246, 0.18), transparent 62%)",
+        "radial-gradient(circle at 50% 58%, rgba(139, 92, 246, 0.15) 0%, transparent 70%)",
     },
   },
   {
@@ -221,10 +221,10 @@ export const themes: PortfolioTheme[] = [
     imageTreatment: {
       filter: "brightness(1.01) contrast(1.03) saturate(1.02)",
       glow:
-        "radial-gradient(circle at center, rgba(37, 99, 235, 0.20), transparent 64%)",
+        "radial-gradient(circle at 50% 52%, rgba(37, 99, 235, 0.20) 0%, rgba(37, 99, 235, 0.12) 34%, rgba(255, 255, 255, 0.20) 58%, transparent 74%)",
       shadow: "0 20px 70px rgba(15, 23, 42, 0.18)",
       backgroundWash:
-        "radial-gradient(circle at 58% 54%, rgba(37, 99, 235, 0.1), transparent 64%)",
+        "radial-gradient(circle at 50% 58%, rgba(37, 99, 235, 0.08) 0%, transparent 70%)",
     },
   },
 ];

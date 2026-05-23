@@ -30,8 +30,9 @@ export const exampleProfile: Profile = {
     about: {
       eyebrow: "About Me",
       heading: "Practical. Curious. Clear.",
-      body:
+      body: [
         "I like projects with a clear technical question, a testable approach, and a result that can be explained simply.",
+      ],
       infoGroups: [
         {
           iconKey: "education",

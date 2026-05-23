@@ -33,7 +33,7 @@ export type Profile = {
     about: {
       eyebrow: string;
       heading: string;
-      body: string;
+      body: string[];
       infoGroups: Array<{
         iconKey: "education" | "code" | "chart";
         label: string;
@@ -75,9 +75,9 @@ export const profile: Profile = {
   location: "Seattle, Washington",
   email: "manuelgarios@outlook.com",
   bio:
-    "I work best on projects where the problem has to be traced carefully: a route fails, a build step breaks, a data view is unclear, or a system needs to be easier to maintain. My portfolio connects software engineering, automation, and data visualization through projects that can be explained clearly and improved over time.",
+    "I'm an aspiring software engineer based in Washington with an academic background in Applied Computing and Data Visualization at the University of Washington Bothell. My work focuses on building small but useful software tools, debugging systems, automating workflows, and using data visualization to make technical information easier to understand.",
   shortBio:
-    "I'm an Applied Computing and Data Visualization student at the University of Washington Bothell. My work focuses on software tools, automation, debugging, and data visualization, with an emphasis on making technical problems easier to test, explain, and improve.",
+    "I'm an Applied Computing and Data Visualization student at the University of Washington Bothell. I build software tools, debug systems, automate workflows, and use visual explanations to make technical problems easier to understand.",
   focusAreas: [
     "Software engineering",
     "Data visualization",
@@ -89,7 +89,7 @@ export const profile: Profile = {
     headline: ["Building tools.", "Solving problems."],
     highlightedHeadline: "Visualizing data.",
     body:
-      "I'm an Applied Computing and Data Visualization student at the University of Washington Bothell. My work focuses on software tools, automation, debugging, and data visualization, with an emphasis on making technical problems easier to test, explain, and improve.",
+      "I'm an Applied Computing and Data Visualization student at the University of Washington Bothell. I build software tools, debug systems, automate workflows, and use visual explanations to make technical problems easier to understand.",
     primaryCta: { label: "View Projects", href: "/#projects" },
     secondaryCta: { label: "Contact Me", href: "/#contact" },
     image: {
@@ -100,32 +100,35 @@ export const profile: Profile = {
   sections: {
     about: {
       eyebrow: "About Me",
-      heading: "Curious. Driven. Detail-Oriented.",
-      body:
-        "I work best on projects where the problem has to be traced carefully: a route fails, a build step breaks, a data view is unclear, or a system needs to be easier to maintain. My portfolio connects software engineering, automation, and data visualization through projects that can be explained clearly and improved over time.",
+      heading: "Hi there, my name is Manuel.",
+      body: [
+        "I'm an aspiring software engineer based in Washington with an academic background in Applied Computing and Data Visualization at the University of Washington Bothell. My work focuses on building small but useful software tools, debugging systems, automating workflows, and using data visualization to make technical information easier to understand.",
+        "I have worked on projects involving Flask request handling, GitHub Actions deployment workflows, Unity tooling, shader experimentation, C++ data structures, and technical research. These projects helped me build stronger habits around tracing problems, testing edge cases, organizing code, and explaining technical decisions clearly.",
+        "I'm currently focused on software engineering, automation, and data-focused projects where I can connect implementation details with clear communication.",
+      ],
       infoGroups: [
         {
           iconKey: "education",
-          label: school,
+          label: "Education",
           lines: degrees,
         },
         {
           iconKey: "code",
-          label: "Interests",
-          lines: ["Software Engineering", "Data Visualization"],
+          label: "Technical Focus",
+          lines: ["Software Engineering", "Automation & Debugging"],
         },
         {
           iconKey: "chart",
-          label: "Focus Areas",
-          lines: ["Full-Stack Development", "Tools & Automation"],
+          label: "Data Focus",
+          lines: ["Data Visualization", "Clear Technical Communication"],
         },
       ],
-      enjoyHeading: "What I enjoy",
+      enjoyHeading: "What I focus on",
       enjoyItems: [
-        "Debugging systems until the failure point is clear",
+        "Debugging problems until the cause is clear",
         "Building tools that reduce repeated manual work",
-        "Organizing technical problems into clear steps",
-        "Explaining results through clean visuals and documentation",
+        "Writing code that is easier to test and update",
+        "Explaining technical work through clear visuals and documentation",
       ],
     },
     projects: {

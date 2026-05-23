@@ -26,17 +26,19 @@
   --theme-accent-glow: rgb(37 99 235 / 0.28);
   --theme-grid: rgb(56 189 248 / 0.045);
   --theme-card-shadow: 0 0 48px rgb(37 99 235 / 0.08);
-  --theme-hero-image-filter: brightness(1.03) contrast(1.06) saturate(1.08);
+  --theme-hero-image-filter: brightness(1.02) contrast(1.05) saturate(1.04);
   --theme-hero-image-glow: radial-gradient(
-    circle at center,
-    rgb(37 99 235 / 0.46),
-    transparent 62%
+    circle at 50% 52%,
+    rgb(37 99 235 / 0.58) 0%,
+    rgb(37 99 235 / 0.32) 30%,
+    rgb(15 23 42 / 0.10) 58%,
+    transparent 74%
   );
-  --theme-hero-image-shadow: 0 0 90px rgb(37 99 235 / 0.35);
+  --theme-hero-image-shadow: 0 0 90px rgb(37 99 235 / 0.28);
   --theme-hero-image-wash: radial-gradient(
-    circle at 58% 52%,
-    rgb(37 99 235 / 0.22),
-    transparent 62%
+    circle at 50% 58%,
+    rgb(37 99 235 / 0.18) 0%,
+    transparent 70%
   );
   font-synthesis: none;
   text-rendering: optimizeLegibility;

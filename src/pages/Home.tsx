@@ -80,18 +80,17 @@ export function Home() {
             style={
               {
                 "--active-image-glow": imageTreatment.glow,
-                "--active-image-shadow": imageTreatment.shadow,
                 "--active-image-filter": imageTreatment.filter,
                 "--active-image-wash":
                   imageTreatment.backgroundWash ?? "transparent",
               } as CSSProperties
             }
           >
-            <div className="absolute inset-x-0 bottom-0 h-[80%] [background:var(--active-image-wash)]" />
-            <div className="absolute inset-x-4 bottom-0 h-[78%] rounded-full blur-2xl [background:var(--active-image-glow)]" />
+            <div className="absolute left-1/2 top-1/2 h-[88%] w-[86%] -translate-x-1/2 -translate-y-1/2 rounded-full [background:var(--active-image-wash)]" />
+            <div className="absolute left-1/2 top-[54%] h-[84%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl [background:var(--active-image-glow)]" />
             <img
               alt={profile.hero.image.alt}
-              className="relative z-10 mx-auto h-[360px] w-full max-w-[430px] object-cover object-top shadow-[var(--active-image-shadow)] transition-[filter,box-shadow] duration-300 ease-out md:h-[520px]"
+              className="relative z-10 mx-auto h-[360px] w-full max-w-[430px] object-cover object-top transition-[filter] duration-300 ease-out md:h-[520px]"
               src={assetPath(profile.hero.image.src)}
               style={{ filter: "var(--active-image-filter)" }}
             />
@@ -109,9 +108,11 @@ export function Home() {
               {profile.sections.about.heading}
             </h2>
             <div className="mt-4 h-px w-12 bg-accent-dark" />
-            <p className="mt-6 max-w-2xl text-base leading-8 text-muted">
-              {profile.sections.about.body}
-            </p>
+            <div className="mt-6 max-w-2xl space-y-4 text-base leading-8 text-muted">
+              {profile.sections.about.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
             {profile.sections.about.infoGroups.length > 0 ? (
               <div className="mt-8 grid gap-6 md:grid-cols-3">
                 {profile.sections.about.infoGroups.map((group) => {
