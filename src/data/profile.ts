@@ -102,9 +102,7 @@ export const profile: Profile = {
       eyebrow: "About Me",
       heading: "Hi there, my name is Manuel.",
       body: [
-        "I'm an aspiring software engineer based in Washington with an academic background in Applied Computing and Data Visualization at the University of Washington Bothell. My work focuses on building small but useful software tools, debugging systems, automating workflows, and using data visualization to make technical information easier to understand.",
-        "I have worked on projects involving Flask request handling, GitHub Actions deployment workflows, Unity tooling, shader experimentation, C++ data structures, and technical research. These projects helped me build stronger habits around tracing problems, testing edge cases, organizing code, and explaining technical decisions clearly.",
-        "I'm currently focused on software engineering, automation, and data-focused projects where I can connect implementation details with clear communication.",
+        "I'm an aspiring software engineer based in Washington with an academic background in Applied Computing and Data Visualization at the University of Washington Bothell. My work focuses on software tools, debugging, automation, and data visualization, with projects that help me practice writing cleaner code, testing edge cases, and explaining technical decisions clearly.",
       ],
       infoGroups: [
         {

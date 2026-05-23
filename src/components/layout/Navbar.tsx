@@ -80,7 +80,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/82 backdrop-blur-xl">
-      <nav ref={navRef} className="relative mx-auto max-w-[1180px] px-5">
+      <nav ref={navRef} className="relative mx-auto max-w-[1360px] px-5">
         <div className="flex h-16 items-center justify-between">
           <Link to="/" onClick={closeMobileMenu} className="flex items-center gap-4">
             <span className="text-2xl font-black tracking-normal text-accent-dark">
@@ -90,7 +90,7 @@ export function Navbar() {
               {siteConfig.brand.name}
             </span>
           </Link>
-          <div className="hidden items-center gap-7 md:flex">
+          <div className="hidden items-center gap-7 lg:flex">
             {navigationItems.filter((item) => item.showInDesktop).map((item) => (
               <Link
                 key={item.href}
@@ -120,7 +120,7 @@ export function Navbar() {
             )}
           </div>
           <button
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted transition hover:border-accent/70 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted transition hover:border-accent/70 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] lg:hidden"
             aria-controls="mobile-navigation"
             aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
@@ -134,7 +134,7 @@ export function Navbar() {
         <div
           id="mobile-navigation"
           className={[
-            "absolute inset-x-5 top-[calc(100%+0.5rem)] overflow-visible rounded-2xl border border-border/80 bg-background/95 shadow-[0_20px_60px_rgb(2_6_23_/_0.45)] backdrop-blur-xl transition md:hidden",
+            "absolute inset-x-5 top-[calc(100%+0.5rem)] overflow-visible rounded-2xl border border-border/80 bg-background/95 shadow-[0_20px_60px_rgb(2_6_23_/_0.45)] backdrop-blur-xl transition lg:hidden",
             isMenuOpen
               ? "pointer-events-auto translate-y-0 opacity-100"
               : "pointer-events-none -translate-y-2 opacity-0",

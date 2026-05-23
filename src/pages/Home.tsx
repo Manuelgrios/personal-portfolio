@@ -14,24 +14,28 @@ import { getIcon } from "../lib/icons";
 
 export function Home() {
   const { currentTheme } = useTheme();
-  const featuredProjects = projects.filter((project) => project.featured).slice(0, 6);
+  const featuredProjects = projects
+    .filter((project) => project.featured)
+    .slice(0, 6);
   const imageTreatment = currentTheme.imageTreatment;
 
   return (
     <div className="space-y-4 md:space-y-5">
-      <section className="grid min-h-[520px] gap-10 overflow-hidden pb-2 pt-9 md:grid-cols-[1fr_0.95fr] md:items-end md:pt-12">
-        <div className="relative z-10 pb-10 md:pb-16">
+      <section className="grid min-h-[650px] gap-8 overflow-hidden pt-10 md:min-h-[700px] md:pt-8 lg:min-h-[735px] lg:grid-cols-[1fr_0.95fr] lg:items-center">
+        <div className="relative z-20 pb-6 lg:pb-24">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
             {profile.hero.eyebrow}
           </p>
-          <h1 className="mt-5 max-w-2xl text-5xl font-black leading-[1.08] tracking-normal text-text md:text-6xl">
+          <h1 className="mt-6 max-w-[760px] text-4xl font-black leading-[1.04] tracking-normal text-text sm:text-5xl md:text-[3.55rem] xl:text-[4rem]">
             {profile.hero.headline.map((line) => (
-              <span key={line}>
+              <span
+                className="block whitespace-normal break-words lg:whitespace-nowrap"
+                key={line}
+              >
                 {line}
-                <br />
               </span>
             ))}
-            <span className="text-accent-dark">
+            <span className="block whitespace-normal break-words text-accent-dark lg:whitespace-nowrap">
               {profile.hero.highlightedHeadline}
             </span>
           </h1>
@@ -76,21 +80,24 @@ export function Home() {
 
         {profile.hero.image.src ? (
           <div
-            className="relative min-h-[360px] overflow-hidden md:min-h-[520px]"
+            className="relative -mt-8 flex min-h-[430px] items-end justify-center overflow-hidden md:min-h-[540px] lg:mt-0 lg:min-h-[720px] lg:self-end lg:overflow-visible"
             style={
               {
                 "--active-image-glow": imageTreatment.glow,
                 "--active-image-filter": imageTreatment.filter,
                 "--active-image-wash":
                   imageTreatment.backgroundWash ?? "transparent",
+                "--active-image-shadow": imageTreatment.shadow,
               } as CSSProperties
             }
           >
-            <div className="absolute left-1/2 top-1/2 h-[88%] w-[86%] -translate-x-1/2 -translate-y-1/2 rounded-full [background:var(--active-image-wash)]" />
-            <div className="absolute left-1/2 top-[54%] h-[84%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl [background:var(--active-image-glow)]" />
+            <div className="absolute left-1/2 top-[48%] h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full [background:var(--active-image-wash)] md:h-[620px] md:w-[620px] lg:h-[760px] lg:w-[760px]" />
+            <div className="absolute left-1/2 top-[50%] h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full [background:var(--active-image-glow)] md:h-[540px] md:w-[540px] lg:h-[650px] lg:w-[650px]" />
+            <div className="absolute left-1/2 top-[49%] h-[390px] w-[390px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent-dark/20 md:h-[500px] md:w-[500px] lg:h-[600px] lg:w-[600px]" />
+            <div className="absolute left-1/2 top-[49%] h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent/10 md:h-[390px] md:w-[390px] lg:h-[460px] lg:w-[460px]" />
             <img
               alt={profile.hero.image.alt}
-              className="relative z-10 mx-auto h-[360px] w-full max-w-[430px] object-cover object-top transition-[filter] duration-300 ease-out md:h-[520px]"
+              className="relative z-10 mx-auto h-[430px] w-full max-w-[460px] object-contain object-bottom transition-[filter] duration-300 ease-out md:h-[520px] md:max-w-[500px] lg:h-[700px] lg:max-w-[610px]"
               src={assetPath(profile.hero.image.src)}
               style={{ filter: "var(--active-image-filter)" }}
             />
@@ -98,8 +105,11 @@ export function Home() {
         ) : null}
       </section>
 
-      <Card id="about" className="scroll-mt-24 p-7 md:p-8">
-        <div className="grid gap-10 lg:grid-cols-[1fr_0.42fr] lg:items-center">
+      <Card
+        id="about"
+        className="relative z-30 -mt-6 scroll-mt-24 p-6 md:-mt-20 md:p-8 lg:p-10"
+      >
+        <div className="grid gap-9 lg:grid-cols-[0.98fr_1fr] lg:items-start">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
               {profile.sections.about.eyebrow}
@@ -113,26 +123,10 @@ export function Home() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-            {profile.sections.about.infoGroups.length > 0 ? (
-              <div className="mt-8 grid gap-6 md:grid-cols-3">
-                {profile.sections.about.infoGroups.map((group) => {
-                  const Icon = getIcon(group.iconKey);
-
-                  return (
-                    <InfoGroup
-                      key={group.label}
-                      icon={Icon}
-                      label={group.label}
-                      lines={group.lines}
-                    />
-                  );
-                })}
-              </div>
-            ) : null}
           </div>
 
           {profile.sections.about.enjoyItems.length > 0 ? (
-            <div className="rounded-2xl border border-border/85 bg-background/25 p-7">
+            <div className="rounded-2xl border border-border/85 bg-background/25 p-6 md:p-7">
               <h3 className="text-lg font-semibold text-accent-dark">
                 {profile.sections.about.enjoyHeading}
               </h3>
@@ -148,6 +142,23 @@ export function Home() {
                   </li>
                 ))}
               </ul>
+            </div>
+          ) : null}
+
+          {profile.sections.about.infoGroups.length > 0 ? (
+            <div className="grid gap-4 md:grid-cols-3 lg:col-span-2">
+              {profile.sections.about.infoGroups.map((group) => {
+                const Icon = getIcon(group.iconKey);
+
+                return (
+                  <InfoGroup
+                    key={group.label}
+                    icon={Icon}
+                    label={group.label}
+                    lines={group.lines}
+                  />
+                );
+              })}
             </div>
           ) : null}
         </div>
@@ -291,15 +302,19 @@ function InfoGroup({ icon: Icon, label, lines }: InfoGroupProps) {
   }
 
   return (
-    <div className="border-border/80 md:border-r md:pr-6 md:last:border-r-0">
-      <div className="flex items-start gap-3">
-        <Icon className="mt-1 shrink-0 text-accent-dark" size={21} />
+    <div className="rounded-xl border border-border/80 bg-background/28 p-5">
+      <div className="flex items-start gap-4">
+        <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-accent-dark/35 bg-accent-dark/15 text-accent-dark">
+          <Icon size={24} />
+        </span>
         <div>
           {label ? (
-            <h3 className="text-sm font-bold leading-6 text-text">{label}</h3>
+            <h3 className="text-base font-bold leading-6 text-accent-dark">
+              {label}
+            </h3>
           ) : null}
           {lines.map((line) => (
-            <p key={line} className="mt-2 text-xs leading-5 text-muted">
+            <p key={line} className="mt-1 text-sm leading-6 text-text">
               {line}
             </p>
           ))}
