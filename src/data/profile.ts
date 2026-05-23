@@ -68,7 +68,7 @@ const degrees = education.map((item) => item.degree);
 
 export const profile: Profile = {
   name: siteConfig.brand.name,
-  headline: "Building tools. Solving problems. Visualizing data.",
+  headline: "Aspiring Full-Stack Software Engineer.",
   subtitle: "Applied Computing and Data Visualization Student",
   school,
   degrees,
